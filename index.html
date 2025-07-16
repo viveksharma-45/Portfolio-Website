@@ -63,9 +63,10 @@
             </div>
             <div class="intro-buttons">
                 <!-- Hire Me scrolls to contact section -->
-                <a href="#contact">
+                <a href="#hire-form">
                     <button class="btn common-btn">Hire Me</button>
                 </a>
+
 
                 <!-- Get Resume downloads your CV -->
                 <a href="Vivek CV 1st YEAR.pdf" target="_blank">
@@ -304,11 +305,12 @@
     </section>
 
     <div class="contact-content">
-        <div class="contact-form-container">
+        <div class="contact-form-container" id="hire-form">
+
             <h1 class="greet-heading">Get In Touch</h1>
-            <form class="contact-form"
+            <form id="myForm" class="contact-form"
                 action="https://script.google.com/macros/s/AKfycbzmi2_ZACg-XyiE877ma5egcvfXlB1NlA-CfsGskA2N2WGWeA9yGPZiuc_HFy9E9XPM/exec"
-                method="post">
+                method="post" target="hidden_iframe" onsubmit="submitted=true;">
                 <input class="form-controls" type="text" name="name" placeholder="Your Name" required>
                 <input class="form-controls" type="text" name="college" placeholder="Your College" required>
                 <input class="form-controls" type="tel" name="mobile" placeholder="Your Mobile Number" required>
@@ -316,6 +318,15 @@
                 <input class="form-controls" type="date" name="dob" required>
                 <input class="form-btn btn common-btn" type="submit" value="Send Message">
             </form>
+
+            <!-- Hidden iframe to trigger JS after submit -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="if(submitted) { document.getElementById('myForm').reset(); alert('Thank you! Your response has been recorded.'); }"></iframe>
+
+            <script>
+                var submitted = false;
+            </script>
+
         </div>
 
         <div class="contact-details">
